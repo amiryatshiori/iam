@@ -43,7 +43,7 @@ func main() {
     ip := os.Getenv("IP")
     port := os.Getenv("PORT")
     fmt.Printf("ip: %v %v\n", ip, port)
-	http.HandleFunc("/", mainHandler)
-	//http.ListenAndServe(":"+port, nil)
-	http.ListenAndServe(":80", nil)
+    http.HandleFunc("/", mainHandler)
+    //http.ListenAndServe(":"+port, nil)
+    http.ListenAndServe(":80", nil)
 }
