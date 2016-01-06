@@ -44,5 +44,6 @@ func main() {
     port := os.Getenv("PORT")
     fmt.Printf("ip: %v %v\n", ip, port)
 	http.HandleFunc("/", mainHandler)
-	http.ListenAndServe(":"+port, nil)
+	//http.ListenAndServe(":"+port, nil)
+	http.ListenAndServe(":80", nil)
 }
