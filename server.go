@@ -36,7 +36,7 @@ func mainHandler(w http.ResponseWriter, r *http.Request) {
 	//title := r.URL.Path[len("/view/"):]
 	//p, _ := loadPage(title)
 	p := &Page{Title: "Title1", Body: []byte("Body1")}
-	renderTemplate(w, "view", p)
+	renderTemplate(w, "index", p)
 }
 
 func main() {
@@ -45,6 +45,8 @@ func main() {
     fmt.Printf("ip: %v %v\n", ip, port)
 	http.HandleFunc("/", mainHandler)
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
+	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("img"))))
 	http.ListenAndServe(":"+port, nil)
 	//http.ListenAndServe(":80", nil)
 }
